@@ -1,0 +1,36 @@
+.Details__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Details__item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.Details__label {
+  color: #818181;
+  font-size: 16px;
+}
+
+.Details__info {
+  color: #3A3A3A;
+  font-weight: 400;
+}
+
+.Details__btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Details__btn:not(:last-child) {
+  margin-right: 24px;
+}
+
+.Details__preloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

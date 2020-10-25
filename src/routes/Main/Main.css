@@ -1,0 +1,35 @@
+.Main__form-inner {
+  display: flex;
+}
+
+.Main__form-item {
+  width: 313px;
+}
+
+.Main__form-item:not(:last-child) {
+  margin-right: 64px;
+}
+
+.Main__form-input-wrapper {
+  position: relative;
+  margin-top: 20px;
+}
+
+.Main__form-input {
+  padding: 12px 20px;
+  width: 100%;
+  border: 1px solid #CBCBCB;
+  border-radius: 4px;
+}
+
+.Main__form-preloader {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.Main__btn-wrapper {
+  margin-top: 35px;
+  text-align: center;
+}
