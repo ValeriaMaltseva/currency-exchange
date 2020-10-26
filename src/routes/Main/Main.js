@@ -3,9 +3,9 @@ import debounce from 'lodash.debounce';
 
 import { getPaymentMethods, calculatePaymentMethod } from 'utils/api';
 import { BUY, SELL } from 'constants/payment';
+import Loader from 'components/Loader';
 import Button from 'components/Button'
 import './Main.css';
-import ShortPreloader from 'components/ShortPreloader/ShortPreloader';
 
 class Main extends PureComponent {
   state = {
@@ -91,7 +91,6 @@ class Main extends PureComponent {
 
   handleSubmit = () => {
     const { history } = this.props;
-    console.log();
 
     history.push({
       pathname: '/details',
@@ -129,19 +128,22 @@ class Main extends PureComponent {
         <div className="Main__form-inner">
           <div className="Main__form-item">
             <div className="title">Sell</div>
-            <select
-              name="invoicePayMethod"
-              defaultValue=""
-              className="Main__form-input"
-              onChange={this.handleChange}
-            >
-              <option disabled value="">Select currency</option>
-              {paymentMethods.invoice.map((paymentMethod) => (
-                <option key={paymentMethod.id} value={paymentMethod.id}>
-                  {paymentMethod.name}
-                </option>
-              ))}
-            </select>
+            <div className="Main__form-input-wrapper">
+              <select
+                name="invoicePayMethod"
+                defaultValue=""
+                className="Main__form-input"
+                onChange={this.handleChange}
+              >
+                <option disabled value="">Select currency</option>
+                {paymentMethods.invoice.map((paymentMethod) => (
+                  <option key={paymentMethod.id} value={paymentMethod.id}>
+                    {paymentMethod.name}
+                  </option>
+                ))}
+              </select>
+              <div className="Main__form-select-arrow arrow-down" />
+            </div>
             <div className="Main__form-input-wrapper">
               <input
                 name="invoiceAmount"
@@ -150,24 +152,27 @@ class Main extends PureComponent {
                 className="Main__form-input"
                 onChange={this.handleChange}
               />
-              {loading === 'invoiceAmount' && <ShortPreloader containerClassName="Main__form-preloader" />}
+              {loading === 'invoiceAmount' && <Loader containerClassName="Main__form-preloader" />}
             </div>
           </div>
           <div className="Main__form-item">
             <div className="title">Buy</div>
-            <select
-              name="withdrawPayMethod"
-              defaultValue=""
-              className="Main__form-input"
-              onChange={this.handleChange}
-            >
-              <option disabled value="">Select currency</option>
-              {paymentMethods.withdraw.map((paymentMethod) => (
-                <option key={paymentMethod.id} value={paymentMethod.id}>
-                  {paymentMethod.name}
-                </option>
-              ))}
-            </select>
+            <div className="Main__form-input-wrapper">
+              <select
+                name="withdrawPayMethod"
+                defaultValue=""
+                className="Main__form-input"
+                onChange={this.handleChange}
+              >
+                <option disabled value="">Select currency</option>
+                {paymentMethods.withdraw.map((paymentMethod) => (
+                  <option key={paymentMethod.id} value={paymentMethod.id}>
+                    {paymentMethod.name}
+                  </option>
+                ))}
+              </select>
+              <div className="Main__form-select-arrow arrow-down" />
+            </div>
             <div className="Main__form-input-wrapper">
               <input
                 name="withdrawAmount"
@@ -176,7 +181,7 @@ class Main extends PureComponent {
                 className="Main__form-input"
                 onChange={this.handleChange}
               />
-              {loading === 'withdrawAmount' && <ShortPreloader containerClassName="Main__form-preloader" />}
+              {loading === 'withdrawAmount' && <Loader containerClassName="Main__form-preloader" />}
             </div>
           </div>
         </div>

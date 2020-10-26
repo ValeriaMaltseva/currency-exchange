@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { ReactComponent as ShortPreloaderImage } from './img/Loader.svg';
+import { ReactComponent as LoaderImage } from './img/Loader.svg';
 
-class ShortPreloader extends PureComponent {
+class Loader extends PureComponent {
   static propTypes = {
     containerClassName: PropTypes.string,
   };
@@ -17,11 +17,11 @@ class ShortPreloader extends PureComponent {
     const { containerClassName } = this.props;
 
     return (
-      <div className={classNames('ShortPreloader', containerClassName)}>
-        <ShortPreloaderImage />
+      <div className={classNames('Loader', containerClassName)}>
+        <LoaderImage />
       </div>
     );
   }
 }
 
-export default ShortPreloader;
+export default Loader;

@@ -10,15 +10,11 @@
   color: #fff;
   font-size: 14px;
   font-weight: 700;
-  transition: all .2s;
 }
 
 .Button:hover {
   background-color: #14b4b2;
-}
-
-.Button__loading {
-  visibility: hidden;
+  color: #fff;
 }
 
 .Button--disabled {

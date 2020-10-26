@@ -1,0 +1,17 @@
+.Success {
+  text-align: center;
+  color: #3A3A3A;
+}
+
+.Success__title {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.Success__description {
+  margin: 10px auto 40px;
+  max-width: 312px;
+  line-height: 24px;
+  font-size: 16px;
+}

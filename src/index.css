@@ -48,6 +48,13 @@ select {
   text-transform: none;
 }
 
+input,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 button,
 [type='button'],
 [type='reset'],

@@ -1,11 +1,21 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import { createBid } from 'utils/api';
 import Button from 'components/Button';
-import ShortPreloader from 'components/ShortPreloader/ShortPreloader';
+import Loader from 'components/Loader';
 import './Details.css';
 
 class Details extends PureComponent {
+  static propTypes = {
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
+    location: PropTypes.shape({
+      state: PropTypes.object.isRequired,
+    }).isRequired,
+  };
+
   state = {
     loading: false,
   };
@@ -77,7 +87,7 @@ class Details extends PureComponent {
             className="Details__btn"
             onClick={this.handleSubmit}
           >
-            {loading ? <ShortPreloader containerClassName="Details__preloader" /> : 'Confirm'}
+            {loading ? <Loader containerClassName="Details__preloader" /> : 'Confirm'}
           </Button>
         </div>
       </div>

@@ -1,10 +1,28 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import ShortPreloader from 'components/ShortPreloader';
+import Loader from 'components/Loader';
 import './Button.css';
 
 class Button extends PureComponent {
+  static propTypes = {
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]).isRequired,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    outlined: PropTypes.bool,
+    loading: PropTypes.bool,
+    onClick: PropTypes.func,
+  };
+
+  static defaultProps = {
+    className: null,
+    disabled: false,
+    outlined: false,
+    loading: false,
+    onClick: () => {},
+  };
+
   /**
    * Should be here to prevent synthetic event errors
    */
@@ -17,7 +35,6 @@ class Button extends PureComponent {
       children,
       className,
       disabled,
-      secondary,
       outlined,
       loading,
       ...props
@@ -29,7 +46,6 @@ class Button extends PureComponent {
         {...props}
         onClick={this.onClick}
         className={classNames('Button', className, {
-          'Button--secondary': secondary,
           'Button--outlined': outlined,
           'Button--disabled': disabled,
         })}
@@ -38,7 +54,7 @@ class Button extends PureComponent {
         {loading && (
           <>
             <span className="Button__loading">{children}</span>
-            <ShortPreloader />
+            <Loader />
           </>
         )}
         {!loading && children}
