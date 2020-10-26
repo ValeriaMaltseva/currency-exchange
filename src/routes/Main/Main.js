@@ -150,6 +150,7 @@ class Main extends PureComponent {
               <input
                 name="invoiceAmount"
                 type="number"
+                min="0"
                 value={invoiceAmount}
                 className="Main__form-input"
                 onChange={this.handleChange}
@@ -179,7 +180,8 @@ class Main extends PureComponent {
               <input
                 name="withdrawAmount"
                 value={withdrawAmount}
-                type="text"
+                type="number"
+                min="0"
                 className="Main__form-input"
                 onChange={this.handleChange}
               />
