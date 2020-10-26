@@ -37,11 +37,11 @@ class Main extends PureComponent {
     let invoicePayMethodName = this.state.invoicePayMethodName;
     let withdrawPayMethodName = this.state.withdrawPayMethodName;
 
-    if (name === 'invoiceAmount') {
+    if (name === 'invoiceAmount' && value > 0) {
       base = SELL;
     }
 
-    if (name === 'withdrawAmount') {
+    if (name === 'withdrawAmount' && value > 0) {
       base = BUY;
     }
 
@@ -119,8 +119,10 @@ class Main extends PureComponent {
 
     const validation =
       invoiceAmount === ''
+      || invoiceAmount === '0'
       || invoicePayMethod === ''
       || withdrawAmount === ''
+      || withdrawAmount === '0'
       || withdrawPayMethod === '';
 
     return (
@@ -147,7 +149,7 @@ class Main extends PureComponent {
             <div className="Main__form-input-wrapper">
               <input
                 name="invoiceAmount"
-                type="text"
+                type="number"
                 value={invoiceAmount}
                 className="Main__form-input"
                 onChange={this.handleChange}
